@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,13 @@ namespace MusicApp
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine("Starting");
+            using (var ctx = new MusicAppContext())
+            {
+                ctx.SaveChanges();
+            }
+            Console.WriteLine("Ended");
         }
 
         public class User
@@ -70,7 +78,9 @@ namespace MusicApp
         public class Song
         {
             public int SongId { get; set; }
+            [ForeignKey("Album")]
             public int AlbumId { get; set; }
+            public Album Album { get; set; }
             public string Title { get; set; }
             public int Lenght { get; set; }
             public string CreatedAt { get; set; }
@@ -85,14 +95,32 @@ namespace MusicApp
             public string UpdatedAt { get; set; }
 
         }
-        public class Albums
+        public class Album
         {
-            public int SongId { get; set; }
             public int AlbumId { get; set; }
+            [ForeignKey("Song")]
+            public int SongId { get; set; }
+            public Song Song { get; set; }
             public string Title { get; set; }
             public int Lenght { get; set; }
             public string CreatedAt { get; set; }
             public string UpdatedAt { get; set; }
+
+        }
+        public class MusicAppContext : DbContext
+        {
+            public MusicAppContext() : base("name = ConnectString")
+            {
+                //Database.SetInitializer(new CreateDatabaseIfNotExists<NotitieboekjeContext>());
+                Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MusicAppContext>());
+            }
+
+            public DbSet<User> User { get; set; }
+            public DbSet<Album> Album { get; set; }
+            public DbSet<Artist> Artist { get; set; }
+            public DbSet<Song> Song { get; set; }
+            public DbSet<PlaylistSongs> PlaylistSongs { get; set; }
+            public DbSet<Interactions> Interactions { get; set; }
 
         }
     }
