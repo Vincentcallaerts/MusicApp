@@ -38,7 +38,7 @@ namespace MusicApp
         
             [ForeignKey("User")]
             public int UserId { get; set; }
-            public User user { get; set; }
+            public User User { get; set; }
 
             [ForeignKey("Song")]
             public int SongId { get; set; }
@@ -99,9 +99,9 @@ namespace MusicApp
         public class Album
         {
             public int AlbumId { get; set; }
-            [ForeignKey("Song")]
-            public int SongId { get; set; }
-            public Song Song { get; set; }
+            [ForeignKey("Artist")]
+            public int ArtistId { get; set; }
+            public Artist Artist { get; set; }
             public string Title { get; set; }
             public int Lenght { get; set; }
             public string CreatedAt { get; set; }
