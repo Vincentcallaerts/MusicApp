@@ -30,14 +30,16 @@ namespace MusicApp
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbUserName = new System.Windows.Forms.TextBox();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbLastName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbFirstName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label2
@@ -49,12 +51,12 @@ namespace MusicApp
             this.label2.TabIndex = 9;
             this.label2.Text = "Password";
             // 
-            // textBox2
+            // tbPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 8;
+            this.tbPassword.Location = new System.Drawing.Point(12, 89);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(100, 20);
+            this.tbPassword.TabIndex = 8;
             // 
             // label1
             // 
@@ -65,22 +67,23 @@ namespace MusicApp
             this.label1.TabIndex = 7;
             this.label1.Text = "UserName";
             // 
-            // textBox1
+            // tbUserName
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 6;
+            this.tbUserName.Location = new System.Drawing.Point(12, 36);
+            this.tbUserName.Name = "tbUserName";
+            this.tbUserName.Size = new System.Drawing.Size(100, 20);
+            this.tbUserName.TabIndex = 6;
             // 
             // btnSignUp
             // 
             this.btnSignUp.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSignUp.Location = new System.Drawing.Point(12, 330);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(200, 70);
+            this.btnSignUp.Size = new System.Drawing.Size(96, 70);
             this.btnSignUp.TabIndex = 10;
             this.btnSignUp.Text = "Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = true;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // label3
             // 
@@ -91,12 +94,12 @@ namespace MusicApp
             this.label3.TabIndex = 14;
             this.label3.Text = "LastName";
             // 
-            // textBox3
+            // tbLastName
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 196);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 13;
+            this.tbLastName.Location = new System.Drawing.Point(12, 196);
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Size = new System.Drawing.Size(100, 20);
+            this.tbLastName.TabIndex = 13;
             // 
             // label4
             // 
@@ -107,27 +110,45 @@ namespace MusicApp
             this.label4.TabIndex = 12;
             this.label4.Text = "FirstName";
             // 
-            // textBox4
+            // tbFirstName
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 143);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 11;
+            this.tbFirstName.Location = new System.Drawing.Point(12, 143);
+            this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.Size = new System.Drawing.Size(100, 20);
+            this.tbFirstName.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 227);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Email";
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Location = new System.Drawing.Point(12, 246);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(100, 20);
+            this.tbEmail.TabIndex = 15;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(224, 412);
+            this.ClientSize = new System.Drawing.Size(120, 412);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.tbFirstName);
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbUserName);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form2";
@@ -139,13 +160,15 @@ namespace MusicApp
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbFirstName;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbEmail;
     }
 }

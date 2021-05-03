@@ -29,15 +29,14 @@ namespace MusicApp
 
                         using (MusicAppContext data = new MusicAppContext())
                         {
-                            data.User.Add(new User() { FirstName });
+                            data.User.Add(new User() { FirstName = form2.FirstName, LastName = form2.LastName, Email = form2.Email, Password = form2.Password });
                             data.SaveChanges();
 
-                            listBox1.Items.Clear();
-                            listBox1.Items.AddRange(data.Customers.Select(c => c.first_name).ToArray());
                         }
 
                         break;
                 }
             }
+        }
     }
 }

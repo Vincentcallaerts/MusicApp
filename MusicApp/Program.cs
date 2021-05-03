@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MusicApp
 {
@@ -13,14 +14,7 @@ namespace MusicApp
     {
         static void Main(string[] args)
         {
-
-            Console.WriteLine("Starting");
-            using (var ctx = new MusicAppContext())
-            {
-                ctx.User.Select(u => u);
-                ctx.SaveChanges();
-            }
-            Console.WriteLine("Ended");
+          
         }
 
         public class User
