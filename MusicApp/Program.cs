@@ -17,6 +17,7 @@ namespace MusicApp
             Console.WriteLine("Starting");
             using (var ctx = new MusicAppContext())
             {
+                ctx.User.Select(u => u);
                 ctx.SaveChanges();
             }
             Console.WriteLine("Ended");
